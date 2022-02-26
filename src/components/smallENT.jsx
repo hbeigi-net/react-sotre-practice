@@ -54,3 +54,11 @@ export const Font = styled.p`
         line-height : ${props=> props.lh || '1rem'};
         letter-spacing : ${props=>props.ls || "noraml"}
 `
+
+export const NavLogo = styled.img`
+        
+        width : 100% ; 
+        height : 100% ; 
+        max-width : 85px ; 
+        /* max-height : 100px ;  */
+`
