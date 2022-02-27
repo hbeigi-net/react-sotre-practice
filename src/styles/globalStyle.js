@@ -7,6 +7,11 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box !important;
     }
     body {
-    padding: 50px;
+    }
+    ul{
+      list-style :none ; 
+    }
+    a{
+      text-decoration : none ; 
     }
 `;

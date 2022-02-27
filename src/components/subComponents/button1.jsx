@@ -30,8 +30,7 @@ const Styles = createGlobalStyle`
   font-family: 'Helvetica', 'Arial', sans-serif;
   display: inline-block;
   padding: 5px 15px;
-  margin-top: 100px;
-  margin-bottom: 60px;
+
   -webkit-appearance: none;
   appearance: none;
   background-color: #ff0081;
@@ -41,7 +40,7 @@ const Styles = createGlobalStyle`
   cursor: pointer;
   position: relative;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+  /* box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5); */
   
   &:focus {
     outline: 0;

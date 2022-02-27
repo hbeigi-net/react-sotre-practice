@@ -11,7 +11,7 @@ export const BtnOne = styled.button`
     transition : all 200ms ease ; 
     &:hover
     {
-        box-shadow: 0 0 1px #9521f340, 0 0 4px #c600ee45, 0 0 8px #f704f737;
+        box-shadow: 0 0 1px #0044d850, 0 0 4px #0044d855, 0 0 8px #f704f737;
     }
     &:active
     {
