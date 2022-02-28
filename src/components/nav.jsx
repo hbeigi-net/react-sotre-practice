@@ -16,6 +16,8 @@ const NavStyles = createGlobalStyle`
       display : flex ; 
       align-items : center ; 
       justify-content : center ; 
+      position :fixed ; 
+      top : 25px ; 
       background-color:#e4c745 ; 
       box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     }
@@ -23,8 +25,9 @@ const NavStyles = createGlobalStyle`
       display : flex ; 
       align-items : center ; 
       justify-content : space-between;
-      width : 100%; 
-      max-width : 1200px ; 
+      max-width : 1250px ; 
+        padding : 5px 20px ; width : 100%; 
+
   
     }
     .topNavList{
@@ -59,7 +62,7 @@ export default function Nav() {
         <NavStyles/>
         <div className="navbarContainer">
             <div id="lgScreenNav">
-                <NavLogo src = "./img/Logo.png"/>
+                <NavLogo src = "./img/Logo.png" />
                 <ul className ='topNavList'>
                   <NavLink to='/1'>
                     LapTops
