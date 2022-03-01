@@ -1,8 +1,11 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import styled , {createGlobalStyle} from "styled-components"
 import Rating from '@mui/material/Rating';
 import {BtnOne} from "../components/subComponents/btns"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
 const PcOneStyles = createGlobalStyle`
     /* pc stands for Product Card  */
     #pcOne 
@@ -59,12 +62,33 @@ const PcOneStyles = createGlobalStyle`
         font-size : 14px ;
         font-weight :400 ; 
     }
+    #pcOne #pcOneActionArea
+    {
+        position : absolute ; 
+        top : 10px ; 
+        right  : 10px ; 
+        display : flex ; 
+        flex-direction :column ; 
+        align-items :center ; 
+        justify-content :center ; 
+    }
 `
 export default function PcOne() {
+    const [isLiked, setIsLiked] = useState(true)
   return (
     <>
     <PcOneStyles/>
     <div id="pcOne">
+        <div id="pcOneActionArea">
+            {
+                isLiked ? <FavoriteIcon sx={{color : "red" , cursor : "pointer"}} onClick={()=>{
+                    setIsLiked(isLiked=>!isLiked);
+                }}/> : <FavoriteBorderIcon onClick={()=>{
+                    setIsLiked(isLiked=>!isLiked);
+                }} />
+            }
+            <BarChartRoundedIcon sx={{ cursor : "pointer"}}  />
+        </div>
         <div id="pcOneContent">
 
                 
