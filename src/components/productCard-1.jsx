@@ -6,6 +6,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
+import IconButton from '@mui/material/IconButton'
 const PcOneStyles = createGlobalStyle`
     /* pc stands for Product Card  */
     #pcOne 
@@ -57,10 +58,10 @@ const PcOneStyles = createGlobalStyle`
         margin-top :5px ;   
         
     }
-    #pcOne #pcOneContent #pcOnePride
+    #pcOne #pcOneContent #pcOnePrice
     {
         font-size : 14px ;
-        font-weight :400 ; 
+        font-weight :400 ;
     }
     #pcOne #pcOneActionArea
     {
@@ -75,11 +76,13 @@ const PcOneStyles = createGlobalStyle`
 `
 export default function PcOne() {
     const [isLiked, setIsLiked] = useState(true)
+    const [hasDiscount, setHasDiscount] = useState(true)
   return (
     <>
-    <PcOneStyles/>
+    <PcOneStyles />
     <div id="pcOne">
         <div id="pcOneActionArea">
+            <IconButton >
             {
                 isLiked ? <FavoriteIcon sx={{color : "red" , cursor : "pointer"}} onClick={()=>{
                     setIsLiked(isLiked=>!isLiked);
@@ -87,7 +90,11 @@ export default function PcOne() {
                     setIsLiked(isLiked=>!isLiked);
                 }} />
             }
-            <BarChartRoundedIcon sx={{ cursor : "pointer"}}  />
+            </IconButton>
+            <IconButton >
+                <BarChartRoundedIcon sx={{ cursor : "pointer"}}  />
+            </IconButton>
+           
         </div>
         <div id="pcOneContent">
 
@@ -104,8 +111,8 @@ export default function PcOne() {
                 </h3>
 
                 <div id="pcOnePriceArea">
-                    <p id = "noDiscountPrice">$499.00</p>
-                    <p className='pcOnePride'>$480.00</p>
+                    {hasDiscount && <p id = "noDiscountPrice">$499.00</p>}
+                    <p className='pcOnePrice'>$480.00</p>
                 </div>
                 <BtnOne style={{ display : "flex" , alignItems : "center" , justifyContent : 'center' , padding :'3px 10px ' , margin : "4px"}}>
                     <AddShoppingCartIcon sx={{fontSize : "16px" , mr : "10px"}}/>
