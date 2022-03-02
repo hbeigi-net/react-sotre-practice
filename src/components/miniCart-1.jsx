@@ -1,10 +1,7 @@
 import React from 'react'
 import {createGlobalStyle} from "styled-components"
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import {BtnOne} from "../components/subComponents/btns"
-import IconButton from '@mui/material/IconButton'
-import CreateSharpIcon from '@mui/icons-material/CreateSharp';
 import Button from '@mui/material/Button'
+import MCPI from "./miniCartProductItem"
 
 const MiniCartStyles = createGlobalStyle`
     #MiniCart
@@ -44,7 +41,7 @@ const MiniCartStyles = createGlobalStyle`
     {
         position : relative ; 
         overflow : hidden ; 
-        max-height : 300px; 
+        height : 300px; 
         overflow-y : auto ;
         scrollbar-width :  thin; 
         scroll-snap-type :proximity;
@@ -53,33 +50,7 @@ const MiniCartStyles = createGlobalStyle`
     {
         list-style : none ; 
     }
-    .mcPcItem
-    {
-        display : flex ; 
-        align-items : center ; 
-        justify-content : space-between ; 
-        font-size : 11px ; 
-        font-weight : 400 ; 
-        line-height : 13px ; 
-        padding : 3px  10px;
-        border-bottom : 1px solid grey ; 
-    }
-    .mcPcItem span {
-        font-size : 14px ; 
-        text-align : center ; 
-    }
-    .mcPcItemTitle
-    {
-        max-width : 40% ; 
-    }
-    .mcPcItemActions
-    {
-        flex-shrink : 1 ; 
-        display : flex ;
-        flex-direction : column ; 
-        align-items : center ; 
-        justify-content : center ;  
-    }
+
     #mcFooter
     {
         font-size : 14px ; 
@@ -120,96 +91,23 @@ export default function MiniCart() {
             </div>
             <div id="mcProductList">
                 <ul id="mcPcList">
-                    <li className="mcPcItem">
-                        <span> &times; {3}</span>
-                        <img src="./—Pngtree—wireless headphones blue_4347448.png" width="80px"  alt="" />
-                        <div className="mcPcItemTitle">
-                        EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...
-                        </div>
-                        <div className="mcPcItemActions">
-                            <IconButton sx={{padding : "2px"}}>
-                              <HighlightOffIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                            <IconButton  sx={{padding : "2px"}} >
-                              <CreateSharpIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                        </div>
-                    </li>
-                    <li className="mcPcItem">
-                        <span> &times; {3}</span>
-                        <img src="./—Pngtree—wireless headphones blue_4347448.png" width="80px"  alt="" />
-                        <div className="mcPcItemTitle">
-                        EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...
-                        </div>
-                        <div className="mcPcItemActions">
-                            <IconButton sx={{padding : "2px"}}>
-                              <HighlightOffIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                            <IconButton  sx={{padding : "2px"}} >
-                              <CreateSharpIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                        </div>
-                    </li>
-                    <li className="mcPcItem">
-                        <span> &times; {3}</span>
-                        <img src="./—Pngtree—wireless headphones blue_4347448.png" width="80px"  alt="" />
-                        <div className="mcPcItemTitle">
-                        EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...
-                        </div>
-                        <div className="mcPcItemActions">
-                            <IconButton sx={{padding : "2px"}}>
-                              <HighlightOffIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                            <IconButton  sx={{padding : "2px"}} >
-                              <CreateSharpIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                        </div>
-                    </li>
-                    <li className="mcPcItem">
-                        <span> &times; {3}</span>
-                        <img src="./—Pngtree—wireless headphones blue_4347448.png" width="80px"  alt="" />
-                        <div className="mcPcItemTitle">
-                        EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...
-                        </div>
-                        <div className="mcPcItemActions">
-                            <IconButton sx={{padding : "2px"}}>
-                              <HighlightOffIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                            <IconButton  sx={{padding : "2px"}} >
-                              <CreateSharpIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                        </div>
-                    </li>
-                    <li className="mcPcItem">
-                        <span> &times; {3}</span>
-                        <img src="./—Pngtree—wireless headphones blue_4347448.png" width="80px"  alt="" />
-                        <div className="mcPcItemTitle">
-                        EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...
-                        </div>
-                        <div className="mcPcItemActions">
-                            <IconButton sx={{padding : "2px"}}>
-                              <HighlightOffIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                            <IconButton  sx={{padding : "2px"}} >
-                              <CreateSharpIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                        </div>
-                    </li>
-                    <li className="mcPcItem">
-                        <span> &times; {3}</span>
-                        <img src="./—Pngtree—wireless headphones blue_4347448.png" width="80px"  alt="" />
-                        <div className="mcPcItemTitle">
-                        EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...
-                        </div>
-                        <div className="mcPcItemActions">
-                            <IconButton sx={{padding : "2px"}}>
-                              <HighlightOffIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                            <IconButton  sx={{padding : "2px"}} >
-                              <CreateSharpIcon sx={{fontSize : "16px" }}/>
-                            </IconButton>
-                        </div>
-                    </li>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
+                 <MCPI/>
                 </ul>
             </div>
             <div id="mcFooter">
