@@ -1,5 +1,5 @@
 import React ,{useState} from 'react'
-import styled , {createGlobalStyle} from "styled-components"
+import {createGlobalStyle} from "styled-components"
 import Rating from '@mui/material/Rating';
 import {BtnOne} from "../components/subComponents/btns"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -7,9 +7,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
 import IconButton from '@mui/material/IconButton'
+import AvailableBadge from "./placeholder-1"
+import NotAvailableBadge from "./placeholder-2"
 const PcOneStyles = createGlobalStyle`
     /* pc stands for Product Card  */
-    #pcOne 
+    .pcOne 
     {
         margin : 100px ; 
         max-width : 234px ; 
@@ -22,18 +24,18 @@ const PcOneStyles = createGlobalStyle`
         box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
          overflow :hidden ; 
     }
-    #pcOneContent
+    .pcOneContent
     {
         width :100% ; 
     }
-    #pcOne #pcOneContent img 
+    .pcOne .pcOneContent img 
     {
         width : 100% ;
         display : block ; 
         margin-left : auto ; 
         margin-right : auto ; 
     }
-    #pcOne #pcOneContent #pcOneReviews
+    .pcOne .pcOneContent .pcOneReviews
     {
         margin : 10px 0px ; 
         display : flex ; 
@@ -42,13 +44,13 @@ const PcOneStyles = createGlobalStyle`
         font-size:12px ; 
         color : #0e0d0da0;
     }
-    #pcOne #pcOneContent #pcOneTitle
+    .pcOne .pcOneContent .pcOneTitle
     {
         font-size : 13px ;
         line-height : 13px ; 
         font-weight :400 ;  
     }
-    #pcOne #pcOneContent #noDiscountPrice
+    .pcOne .pcOneContent .noDiscountPrice
     {
         text-decoration : line-through;
         color : grey ; 
@@ -58,12 +60,12 @@ const PcOneStyles = createGlobalStyle`
         margin-top :5px ;   
         
     }
-    #pcOne #pcOneContent #pcOnePrice
+    .pcOne .pcOneContent .pcOnePrice
     {
         font-size : 14px ;
         font-weight :400 ;
     }
-    #pcOne #pcOneActionArea
+    .pcOne .pcOneActionArea
     {
         position : absolute ; 
         top : 10px ; 
@@ -73,15 +75,27 @@ const PcOneStyles = createGlobalStyle`
         align-items :center ; 
         justify-content :center ; 
     }
+    .BadgeArea
+    {
+        position : absolute ; 
+        top : 0 ; 
+        left : 0 ; 
+    }
 `
 export default function PcOne() {
     const [isLiked, setIsLiked] = useState(true)
+    const [isAvailable, setIsAvailable] = useState(true)
     const [hasDiscount, setHasDiscount] = useState(true)
   return (
     <>
     <PcOneStyles />
-    <div id="pcOne">
-        <div id="pcOneActionArea">
+    <div className="pcOne">
+        <div className="BadgeArea">
+            {
+                isAvailable ? <AvailableBadge/> : <NotAvailableBadge/>
+            }
+        </div>
+        <div className="pcOneActionArea">
             <IconButton >
             {
                 isLiked ? <FavoriteIcon sx={{color : "red" , cursor : "pointer"}} onClick={()=>{
@@ -96,22 +110,22 @@ export default function PcOne() {
             </IconButton>
            
         </div>
-        <div id="pcOneContent">
+        <div className="pcOneContent">
 
                 
                 <img src='./—Pngtree—wireless headphones blue_4347448.png'/>
                 
-                <div id="pcOneReviews">
+                <div className="pcOneReviews">
                       <Rating name="read-only" value={4.4}  readOnly  size="small" precision={0.1} />
                       Reviews (<span>34</span>)
                 </div>
 
-                <h3 id="pcOneTitle">
+                <h3 className="pcOneTitle">
                     EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...
                 </h3>
 
-                <div id="pcOnePriceArea">
-                    {hasDiscount && <p id = "noDiscountPrice">$499.00</p>}
+                <div className="pcOnePriceArea">
+                    {hasDiscount && <p className="noDiscountPrice">$499.00</p>}
                     <p className='pcOnePrice'>$480.00</p>
                 </div>
                 <BtnOne style={{ display : "flex" , alignItems : "center" , justifyContent : 'center' , padding :'3px 10px ' , margin : "4px"}}>
