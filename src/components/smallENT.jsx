@@ -63,3 +63,4 @@ export const NavLogo = styled.img`
         max-width : 85px ; 
         /* max-height : 100px ;  */
 `
+
