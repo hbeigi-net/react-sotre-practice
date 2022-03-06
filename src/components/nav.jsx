@@ -18,6 +18,7 @@ const NavStyles = createGlobalStyle`
       justify-content : center ; 
       position :fixed ; 
       top : 25px ; 
+      z-index : 100 ; 
       background-color:#e4c745 ; 
       box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     }
@@ -26,7 +27,8 @@ const NavStyles = createGlobalStyle`
       align-items : center ; 
       justify-content : space-between;
       max-width : 1250px ; 
-        padding : 5px 20px ; width : 100%; 
+        /* padding : 5px 20px ; */
+         width : 95vw; 
 
   
     }
