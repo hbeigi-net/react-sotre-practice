@@ -13,8 +13,7 @@ export default function Store() {
 
   return (
     <>
-      <HoverMenu/>
-  
+
     </>
   )
 }
