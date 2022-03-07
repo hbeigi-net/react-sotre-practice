@@ -86,6 +86,12 @@ export default function HomeOne() {
              </div>
             </Slider>
         </div>
+
+        <section id="customBuilds">
+            <div className="container1250">
+                
+            </div>
+        </section>
       </>
   )
 }
