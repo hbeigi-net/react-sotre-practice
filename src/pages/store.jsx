@@ -7,13 +7,13 @@ import React,{useEffect} from 'react'
 // import PlaceholderOne from "../components/placeholder-1"
 // import PlaceholderTwo from "../components/placeholder-2"
 // import PcOne from '../components/productCard-1'
-// import MiniCart from "../components/miniCart-1"
+import MiniCart from "../components/miniCart-1"
 import HoverMenu from '../components/hoveredMenu-1'
 export default function Store() {
 
   return (
     <>
-
+    <MiniCart/>
     </>
   )
 }
