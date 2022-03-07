@@ -27,8 +27,7 @@ const NavStyles = createGlobalStyle`
       align-items : center ; 
       justify-content : space-between;
       max-width : 1250px ; 
-        /* padding : 5px 20px ; */
-         width : 95vw; 
+      width : 95vw; 
 
   
     }
