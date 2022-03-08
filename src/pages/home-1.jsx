@@ -11,8 +11,9 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import Grid from '@mui/material/Grid';
 import BrandsLogoBar from "../components/brandsLogoBar"
-
-
+import BlogPostCard from "../components/blogPostCard"
+import TestimonialCarouselItem from "../components/TestimonialCarouselItem"; 
+import SliderTwo from "../components/sliderTwo"
 const HomeOneStyles = createGlobalStyle`
     /* hp stands for home page  */
     .container1250
@@ -484,7 +485,73 @@ export default function HomeOne() {
         <section id="homePageBrandsLogoBar" className="container1250">
            <BrandsLogoBar/>
         </section>
+        
+        <section id = "homePageBlogPostCards">
+            <div className="container1250">
+                    <h3 style={{margin : "20px 0"}}>
+                        Last Blog Posts 
+                    </h3>
+                    <Grid container spacing={2} justifyContent="flex-start" alignItems="center">
+                        <Grid item xs ={6} sm = {4} md={3} lg={2}>
+                            <BlogPostCard />
+                        </Grid>
+                        <Grid item xs ={6} sm = {4} md={3} lg={2}>
+                            <BlogPostCard />
+                        </Grid>
+                        <Grid item xs ={6} sm = {4} md={3} lg={2}>
+                            <BlogPostCard />
+                        </Grid>
+                        <Grid item xs ={6} sm = {4} md={3} lg={2}>
+                            <BlogPostCard />
+                        </Grid>
+                        <Grid item xs ={6} sm = {4} md={3} lg={2}>
+                            <BlogPostCard />
+                        </Grid>
+                        <Grid item xs ={6} sm = {4} md={3} lg={2}>
+                            <BlogPostCard />
+                        </Grid>
+                        <Grid item xs ={6} sm = {4} md={3} lg={2}>
+                            <BlogPostCard />
+                        </Grid>
+                        <Grid item xs ={6} sm = {4} md={3} lg={2}>
+                            <BlogPostCard />
+                        </Grid>
+                        <Grid item xs ={6} sm = {4} md={3} lg={2}>
+                            <BlogPostCard />
+                        </Grid>
+                        <Grid item xs ={6} sm = {4} md={3} lg={2}>
+                            <BlogPostCard />
+                        </Grid>
+                    </Grid> 
 
-    </>
+            </div>
+        </section>
+
+
+        <section id="homepageTestimonials">
+            <div className="container1250">
+                <SliderTwo >
+                    <div>
+                        <TestimonialCarouselItem/>
+                    </div>
+                    <div>
+                        <TestimonialCarouselItem/>
+                    </div>
+                    <div>
+                        <TestimonialCarouselItem/>
+                    </div>
+                    <div>
+                        <TestimonialCarouselItem/>
+                    </div>
+                    <div>
+                        <TestimonialCarouselItem/>
+                    </div>
+
+                </SliderTwo>
+            </div>
+        </section>
+
+        
+    </> 
   )
 }
