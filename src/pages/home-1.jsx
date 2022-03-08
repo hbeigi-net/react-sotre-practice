@@ -548,6 +548,7 @@ export default function HomeOne() {
                     </div>
 
                 </SliderTwo>
+                
             </div>
         </section>
 

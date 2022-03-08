@@ -3,88 +3,59 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import {createGlobalStyle} from "styled-components"
-import IconButton from '@mui/material/IconButton'
-import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
-import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+import {BtnOne} from "./subComponents/btns"
 const SliderStylesTwo = createGlobalStyle`
+    .sliderTwoMain .slick-dots{
+        /* display : inline-block !important ; */
+        width : 200px ; 
+        right : 100px ; 
 
-    .sliderTwoNextArrow
+    }
+    .sliderTwoMain .slick-dots li{
+        margin : 0 2px; 
+    }
+
+    .sliderTwoMain .slick-dots li button::before
     {
-        position : absolute ; 
-        color : red ;
-        top : 50% ; 
-        transform : translate(0 , -50%) ;
-        left : 0 ; 
-        background-color : #44434342 ; 
-        border-radius :  0 50px 50px 0; 
+        font-size : 12px ; 
+        color : #003cff; 
     }
-    .sliderTwoPrevArrow
-    {
-        position : absolute ; 
-        color : red ;
-        top : 50% ;  
-        background-color : #44434342 ; 
-        right : 0 ; 
-        z-index : 10 ; 
-        transform : translate(0 , -50%) ;
-        border-radius : 50px 0 0 50px ; 
-    }
-    .hoverSliderTwoArrow
-    {
-      transition : all 300ms ease ; 
-    }
-    .hoverSliderTwoArrow:hover{
-      background-color : #928181d2 ; 
-    }
-`
-function NextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className='sliderTwoNextArrow hoverSliderTwoArrow'
-        onClick={onClick}
-      >
-          <IconButton >
-                <ArrowBackIosRoundedIcon sx={{color : "white"}}/>   
-          </IconButton> 
-      </div>
-    );
-  }
   
-function PrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className="sliderTwoPrevArrow hoverSliderTwoArrow"
-        onClick={onClick}
-      >
-
-            <IconButton >
-                <ArrowForwardIosRoundedIcon sx={{color : "white"}}/>   
-            </IconButton>
-      </div>
-    );
+    
+  .sliderTwoFloatingButton{
+      position : absolute ; 
+      left : 180px ; 
+      z-index : 10 ; 
   }
+`
+
 export default function SliderTwo({children , style ,set}) {
     const settings = {
-
+        arrow : false ,
         infinite: true,
-        speed: 500,
-
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />
-
+        dots : true ,
+        autoplay: true,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplaySpeed: 5000,
+        cssEase: "ease"
       };
   return (
       <>
         <SliderStylesTwo/>
-        <div style={{margin : "30px auto", maxWidth : "1250px", width : "95vw"  ,...style}}>
+        <div className='sliderTwoMain' style={{margin : "30px auto", maxWidth : "900px", width : "95vw" , backgroundColor : "rgb(242, 238, 255)",paddingBottom : "40px", position :"relative"  ,...style}}>
             <Slider {...settings} {...set} >
                 {
                     children
                 }
         
             </Slider>
+            <div className="sliderTwoFloatingButton">
+                <BtnOne style={{padding : "3px 10px" , fontSize : "11px"}}>
+                    Leave Us A Review 
+                </BtnOne>
+            </div>
         </div>
       </>
   )
