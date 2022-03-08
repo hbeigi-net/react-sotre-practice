@@ -14,6 +14,7 @@ import BrandsLogoBar from "../components/brandsLogoBar"
 import BlogPostCard from "../components/blogPostCard"
 import TestimonialCarouselItem from "../components/TestimonialCarouselItem"; 
 import SliderTwo from "../components/sliderTwo"
+import Footer from "../components/mainFooter"
 const HomeOneStyles = createGlobalStyle`
     /* hp stands for home page  */
     .container1250
@@ -552,7 +553,8 @@ export default function HomeOne() {
             </div>
         </section>
 
-        
+            <Footer/>
+
     </> 
   )
 }
