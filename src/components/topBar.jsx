@@ -8,7 +8,7 @@ const TopBarStyles = createGlobalStyle`
         width: 100vw ; 
         position : fixed ; 
         top : 0 ; 
-        z-index : 10 ; 
+        z-index : 1000 ; 
         display : flex ; 
         justify-content : center ; 
         align-items : center ; 

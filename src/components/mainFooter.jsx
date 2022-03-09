@@ -2,9 +2,9 @@ import React from 'react'
 import {createGlobalStyle} from "styled-components"
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
-
-
-
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import Info from  "./supportInfo"
 const MainFooterStyles = createGlobalStyle`
     .footerContainer{
         width : 100% ; 
@@ -30,8 +30,15 @@ const MainFooterStyles = createGlobalStyle`
         display : flex ; 
         align-items : center ; 
         justify-content : center ; 
+        
 
     }
+    @media (max-width : 760px) {
+        .newsletterForm form
+        {
+            flex-direction : column ; 
+        }
+    }   
     .newsletterForm form input {
         margin : 0 20px ; 
         width : 200px ; 
@@ -56,11 +63,20 @@ const MainFooterStyles = createGlobalStyle`
     .footerLinks h3{
         color : gray ;
     }
+    .footerSocialLinks
+    {
+        display : flex ; 
+        justify-content : space-between ; 
+        align-items : center ;
+        color : grey ; 
+    }
 `
 export default function Footer() {
   return (
       <>
         <MainFooterStyles />
+
+        <Info/>
         <div className="footerContainer">
 
                 <div className="footerContent">
@@ -290,13 +306,18 @@ export default function Footer() {
 
                         <div className="footerSocialLinks">
                             <div className="footerSocialMedias">
-                                
+                                    <InstagramIcon sx={{fontSize : "16px" , margin : "0 5px"}}/>
+                                    <FacebookIcon sx={{fontSize : "16px" , margin : "0 5px"}}/>
                             </div>
                             <div className="footerPayMethods">
-
+                                <img src="./img/pay/american-express.png" alt="" />
+                                <img src="./img/pay/discover.png" alt="" />
+                                <img src="./img/pay/maestro.png" alt="" />
+                                <img src="./img/pay/paypal.png" alt="" />
+                                <img src="./img/pay/visa.png" alt="" />
                             </div>
                             <div className="footerCopyRight">
-
+                                Copyright © 2020 Shop Pty.Ltd 
                             </div>
                         </div>
                 </div>
