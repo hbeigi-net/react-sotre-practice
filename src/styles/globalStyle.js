@@ -18,4 +18,14 @@ export const GlobalStyle = createGlobalStyle`
     {
       font-family : mikhak ; 
     }
+    .container1250
+    {
+        max-width : 1250px ; 
+        width : 95vw ; 
+        margin : 50px auto ;
+    }
+    .my-none 
+    {
+      margin : 0 auto !important; 
+    }
 `;

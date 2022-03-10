@@ -21,10 +21,14 @@ const PcOneCON = styled.div`
 `
 const PcOneStyles = createGlobalStyle`
     /* pc stands for Product Card  */
-
+    .pcOne
+    {
+        margin : 0 auto ; 
+    }
     .pcOneContent
     {
         width :100% ; 
+ 
     }
     .pcOne .pcOneContent img 
     {
