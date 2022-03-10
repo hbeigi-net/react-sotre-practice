@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import {NavLink} from "react-router-dom"
 import Btn from './subComponents/button1'
 import {BtnOne} from './subComponents/btns'
@@ -9,6 +9,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Avatar from '@mui/material/Avatar';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+
+
+
 const NavStyles = createGlobalStyle`
     .navbarContainer
     {
@@ -56,46 +60,89 @@ const NavStyles = createGlobalStyle`
       align-items : center ; 
       justify-content : space-between ; 
     }
-`
+    .navbarSearchBar
+    {
+      flex-grow : 1; 
+      background-color : #eefacc;
+      position : relative ; 
+      overflow : hidden ; 
+      border-radius : 20px ; 
+      display : flex ; 
+      align-items : center ;
+      justify-content : space-between ; 
+      /* line-height  : 10px ;  */
+
+    }
+    .navbarSearchBar #topNavSearchInput{
+      background-color : transparent ; 
+      outline : none ; 
+      border : none ; 
+      width : 80% ; 
+      padding : 10px ; 
+      
+    }
+    .navbarSearchBar  .topNavSearchActionIcons
+    {
+      margin-right : 10px ; 
+    }
+    `
 export default function Nav() {
+  const [searchOpen, setSearchOpen] = useState(true)
   return (
     <>
         <NavStyles/>
         <div className="navbarContainer">
             <div id="lgScreenNav">
                 <NavLogo src = "./img/Logo.png" />
-                <ul className ='topNavList'>
-                  <NavLink to='/1'>
-                    LapTops
-                  </NavLink>
-                  <NavLink to='/2'>
-                    Desktop PCs
-                  </NavLink>
-                  <NavLink to='/3'>
-                    Networking Devices
-                  </NavLink>
-                  <NavLink to='/4'>
-                    Printers&Scanners
-                  </NavLink>
-                  <NavLink to='/5'>
-                    PC Parts
-                  </NavLink>
-                  <NavLink to='/6'>
-                    All Other Products 
-                  </NavLink>
-                  <NavLink to='/'>
-                    Repairs
-                  </NavLink>
-                  <NavLink to='/33'>
-                    <BtnOne>
-                      Our Deals
-                    </BtnOne>
-                  </NavLink>
-                </ul>
+                { !searchOpen &&
+                   <ul className ='topNavList'>
+                                  <NavLink to='/1'>
+                                    LapTops
+                                  </NavLink>
+                                  <NavLink to='/2'>
+                                    Desktop PCs
+                                  </NavLink>
+                                  <NavLink to='/3'>
+                                    Networking Devices
+                                  </NavLink>
+                                  <NavLink to='/4'>
+                                    Printers&Scanners
+                                  </NavLink>
+                                  <NavLink to='/5'>
+                                    PC Parts
+                                  </NavLink>
+                                  <NavLink to='/6'>
+                                    All Other Products 
+                                  </NavLink>
+                                  <NavLink to='/'>
+                                    Repairs
+                                  </NavLink>
+                                  <NavLink to='/33'>
+                                    <BtnOne>
+                                      Our Deals
+                                    </BtnOne>
+                                  </NavLink>
+                    </ul>
+                }
+                {
+                  searchOpen && 
+                  <div className="navbarSearchBar">
+                    <input type="text" id='topNavSearchInput' placeholder='Search entiere store here' />
+                      <div className="topNavSearchActionIcons">
+                        <IconButton aria-label="search" color='primary' >
+                           <SearchIcon color='black'sx={{color :"#333" , fontSize : "20px"}}/>
+                        </IconButton>
+                        <IconButton aria-label="search" color='primary' onClick={()=>setSearchOpen(false)} >
+                           <HighlightOffIcon color='black'sx={{color :"#333" , fontSize : "20px"}}/>
+                        </IconButton>
+                      </div>
+                  </div>
+                }
+
                 <div id="useAreaNav">
-                  <IconButton aria-label="search" color='primary' >
-                     <SearchIcon color='black'sx={{color :"#333" , fontSize : "20px"}}/>
-                  </IconButton>
+                { !searchOpen &&  <IconButton aria-label="search" color='primary' >
+                     <SearchIcon color='black'sx={{color :"#333" , fontSize : "20px"}} onClick={()=>setSearchOpen(true)}/>
+                  </IconButton>}
                   <IconButton aria-label="search" color='primary' >
 
                   <Badge badgeContent={4}  color="primary" sx={{color :"#333"}}>
