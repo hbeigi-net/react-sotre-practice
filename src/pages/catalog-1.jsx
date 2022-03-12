@@ -10,6 +10,8 @@ import ControlledInput from "../components/controlledSelect"
 import IconButton from '@mui/material/IconButton'
 import TableRowsSharpIcon from '@mui/icons-material/TableRowsSharp';
 import MainFooter from "../components/mainFooter"
+import Filters from '../components/storeFilters'
+import Chip from '@mui/material/Chip';
 const CatalogOneStyles = createGlobalStyle`
 
   .cpTopBanner{
@@ -31,8 +33,16 @@ const CatalogOneStyles = createGlobalStyle`
   {
     color : grey ; 
   }
+  #catalogPageFooter
+  {
+    margin-top : 90px ; 
+  }
 `
 export default function CatalogOne() {
+  const handleDelete =()=>
+  {
+    console.log("hello world")
+  }
   return (
     <>  
     <CatalogOneStyles/>
@@ -61,14 +71,22 @@ export default function CatalogOne() {
    
         <Grid container spacing={1} justifyContent="center" alignItems="flex-start">
             <Grid item xs={0} md={3}>
-
+              <Filters/>
             </Grid>
             <Grid item container justifyContent={{xs : "center" , md : "space-between"}} spacing={1} xs={12} md={9}>
                 <Grid item xs ={12}  >
-                    <div className="pcPaginationFilters">
-                      <p className="itemCountsPerPageShow">
-                          25 items per page
-                      </p>
+
+                    <div className="pcPaginationFilters"><div className="catalogOnefilters">
+                      
+                        <p className="itemCountsPerPageShow">
+                            25 items per page
+                        </p>
+                        <div className="catalogOneFilterChips">
+                        <Chip label="Deletable" variant="outlined" onDelete={handleDelete} />    
+                        <Chip label="Deletable" variant="outlined" onDelete={handleDelete} />    
+                        <Chip label="Deletable" variant="outlined" onDelete={handleDelete} />    
+                                            </div>
+                    </div>
                       <div style={{flexGrow : "1"}}></div>
                       <div className="productsGridFilters">
                         <ControlledInput Label="Product Per Page " selectOptions={["15" , '25' , '35']} defalultValue ={"25"} SX={{maxWidth : "100px"}}/>
@@ -85,10 +103,10 @@ export default function CatalogOne() {
                     </div>
                 </Grid>
                 {
-                  [1,2,3,4,5,6,7,8,9,10,11,12].map(item=>
+                  [1,2,3,4,5,6,7,8,9,10,11,12,1,2,2,3,4,5,6,7,8,9,9,9,9,9,9,9].map(item=>
                     {
                       return (
-                        <Grid item xs ={6} sm = {4} md ={3} key={item}  >
+                        <Grid item xs ={6} sm = {4} lg ={3} key={item}  >
                            <ProductCard/>
                         </Grid>
                       )
@@ -103,9 +121,8 @@ export default function CatalogOne() {
         </Grid>
       </div>
     </main>
-    <footer>
-          <MainFooter/>        
-
+    <footer id="catalogPageFooter">
+          <MainFooter/>       
     </footer>
     
     </>
