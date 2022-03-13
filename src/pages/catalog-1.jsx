@@ -12,6 +12,7 @@ import TableRowsSharpIcon from '@mui/icons-material/TableRowsSharp';
 import MainFooter from "../components/mainFooter"
 import Filters from '../components/storeFilters'
 import Chip from '@mui/material/Chip';
+import Paginater from '../components/pagination'
 const CatalogOneStyles = createGlobalStyle`
 
   .cpTopBanner{
@@ -113,7 +114,10 @@ export default function CatalogOne() {
                       
                     })
                 }
-             
+                   
+                   <Grid item xs ={12}   >
+                     <Paginater/>
+                   </Grid>
 
               
             
@@ -121,6 +125,7 @@ export default function CatalogOne() {
         </Grid>
       </div>
     </main>
+
     <footer id="catalogPageFooter">
           <MainFooter/>       
     </footer>
