@@ -6,13 +6,17 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
 import IconButton from '@mui/material/IconButton'
+import {BtnOne} from "./subComponents/btns"
 const LVPstyles = createGlobalStyle`
+body{
+    padding : 100px ; 
+}
     .lvpCard
     {
         position : relative ; 
         width : 800px ; 
         padding : 5px ; 
-        border : 1px solid grey ; 
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
         display : flex ; 
         
     }
@@ -32,10 +36,22 @@ const LVPstyles = createGlobalStyle`
     .lvp-detail
     {
         width : 20% ; 
+        display : flex ; 
+        align-items : center ; 
     }
     .lvp-detail .lvp-detailProperty
     {
         font-size : 14px ; 
+        padding-right : 20px ; 
+    }
+    .lvp-detail .lvp-detailValue{
+        color : grey ; 
+    }
+    .lvp-actions
+    {
+        display : flex ; 
+        flex-direction : column ; 
+        justify-content : space-between; 
     }
 `
 export default function LVPCard()
@@ -67,6 +83,9 @@ export default function LVPCard()
                             499
                         }$
                     </p>
+                    <BtnOne style={{width : "130px" , padding : "3px 10px"}}>
+                        add To cart
+                    </BtnOne>
             </div>
             <div style={{flexGrow : "1"}}></div>
             <div className="lvp-detail">
