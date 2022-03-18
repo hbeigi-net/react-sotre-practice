@@ -8,9 +8,10 @@ function App() {
   return (
     <>
         <GlobalStyle/>
-        <LVPCard/>
+        {/* <LVPCard/> */}
         {/* <HomeOne/> */}
         {/* <Store/> */}
+        <CatalogOne/>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import {createGlobalStyle} from "styled-components"
 import TopBar from "../components/topBar"
 import Nav from "../components/nav"
@@ -13,6 +13,7 @@ import MainFooter from "../components/mainFooter"
 import Filters from '../components/storeFilters'
 import Chip from '@mui/material/Chip';
 import Paginater from '../components/pagination'
+import LVPC from "../components/listViewProductCard"
 const CatalogOneStyles = createGlobalStyle`
 
   .cpTopBanner{
@@ -40,6 +41,7 @@ const CatalogOneStyles = createGlobalStyle`
   }
 `
 export default function CatalogOne() {
+  const [listView , setListView] = useState(false); 
   const handleDelete =()=>
   {
     console.log("hello world")
@@ -94,16 +96,16 @@ export default function CatalogOne() {
                         <ControlledInput Label="Sort By :" selectOptions={["position" , "price"]} defalultValue ="price" SX={{maxWidth : "100px" , margin : "0 10px"}}/>
                       </div>
                       <div className="pcGridLayoutActions">
-                          <IconButton >
+                          <IconButton onClick={(e)=> setListView(false)} >
                             <ViewComfyIcon sx={{fontSize : "30px"}}/>
                           </IconButton>
-                          <IconButton >
+                          <IconButton  onClick={(e)=>setListView(true)}>
                             <TableRowsSharpIcon sx={{fontSize : "30px"}}/>
                           </IconButton>
                       </div>
                     </div>
                 </Grid>
-                {
+                {!listView &&
                   [1,2,3,4,5,6,7,8,9,10,11,12,1,2,2,3,4,5,6,7,8,9,9,9,9,9,9,9].map(item=>
                     {
                       return (
@@ -113,6 +115,19 @@ export default function CatalogOne() {
                       )
                       
                     })
+                }
+                {
+                  listView&&<>
+                   {    [1,2,3,4,5,6,7,8,9].map(item=>
+                    {
+                      return (
+                        <Grid item xs ={12}  key={item}  >
+                           <LVPC/>
+                        </Grid>
+                      )
+                      
+                    })}
+                  </>
                 }
                    
                    <Grid item xs ={12}   >

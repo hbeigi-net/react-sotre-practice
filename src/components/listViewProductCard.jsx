@@ -8,13 +8,12 @@ import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
 import IconButton from '@mui/material/IconButton'
 import {BtnOne} from "./subComponents/btns"
 const LVPstyles = createGlobalStyle`
-body{
-    padding : 100px ; 
-}
+
     .lvpCard
     {
         position : relative ; 
-        width : 800px ; 
+        margin :0 auto ; 
+        width : 100%; 
         padding : 5px ; 
         box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
         display : flex ; 
