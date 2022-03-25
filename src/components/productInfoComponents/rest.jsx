@@ -49,6 +49,7 @@ const RestStyles = createGlobalStyle`
     .restSection
     {
         margin : 30px auto ; 
+        margin-top : 0 ; 
         padding : 50px ; 
 
     }
