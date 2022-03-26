@@ -5,15 +5,23 @@ import {GlobalStyle} from "./styles/globalStyle"
 import CatalogOne from "./pages/catalog-1"
 import LVPCard from "./components/listViewProductCard";
 import ProductInfo from "./components/productInfoComponents/main";
+import ContactUs from "./pages/contactUs"
+import Nav from "./components/nav"
+import Mainfooter from "./components/mainFooter"
+import TopBar from "./components/topBar"
 function App() {
   return (
     <>
         <GlobalStyle/>
-        <ProductInfo/>
+        <TopBar/>
+        <Nav/>
+        {/* <ProductInfo/> */}
         {/* <LVPCard/> */}
         {/* <HomeOne/> */}
         {/* <Store/> */}
         {/* <CatalogOne/> */}
+        <ContactUs/>
+        <Mainfooter/>
     </>
   );
 }
