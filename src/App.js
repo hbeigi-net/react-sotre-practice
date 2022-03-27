@@ -10,6 +10,7 @@ import Nav from "./components/nav"
 import Mainfooter from "./components/mainFooter"
 import TopBar from "./components/topBar"
 import Auth from "./pages/auth";
+import ShoppintCart from "./pages/shoppintCart";
 function App() {
   return (
     <>
@@ -22,7 +23,8 @@ function App() {
         {/* <Store/> */}
         {/* <CatalogOne/> */}
         {/* <ContactUs/> */}
-        <Auth/>
+        {/* <Auth/> */}
+        <ShoppintCart/>
         <Mainfooter/>
     </>
   );
