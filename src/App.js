@@ -9,6 +9,7 @@ import ContactUs from "./pages/contactUs"
 import Nav from "./components/nav"
 import Mainfooter from "./components/mainFooter"
 import TopBar from "./components/topBar"
+import Auth from "./pages/auth";
 function App() {
   return (
     <>
@@ -20,7 +21,8 @@ function App() {
         {/* <HomeOne/> */}
         {/* <Store/> */}
         {/* <CatalogOne/> */}
-        <ContactUs/>
+        {/* <ContactUs/> */}
+        <Auth/>
         <Mainfooter/>
     </>
   );
