@@ -2,13 +2,13 @@ import React from 'react'
 import {createGlobalStyle} from 'styled-components'
 import Grid from '@mui/material/Grid'
 import TextField from '@mui/material/TextField'
-
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 
 const ContactUsStyles = createGlobalStyle`
     #main-contact-us-page
     {
-        margin-top : 200px ; 
+        margin : 200px 0; 
         font-size : 13px ; 
         font-weight : 400; 
     }
@@ -92,7 +92,58 @@ export default function CotactUs() {
                             </Grid> 
                         </div>
                    </Grid>
-                   <Grid item xs={12} md={3} ></Grid>
+                   <Grid item xs={12} md={3} >
+                     <Grid container spacing={2}>
+                            <Grid item xs={3} md={12} sx={{display:"flex"}}>
+                              <LocationOnIcon/>
+                              <div> 
+                                 <h3>
+                                   Address : 
+                              
+                                 </h3>
+                                 <p>
+                                     this is a placeHolder for address
+                                 </p>
+                              </div>
+                            </Grid>
+                            <Grid item xs={3} md={12} sx={{display:"flex"}}>
+                              <LocationOnIcon/>
+                              <div> 
+                                 <h3>
+                                   Address : 
+                              
+                                 </h3>
+                                 <p>
+                                     this is a placeHolder for address
+                                 </p>
+                              </div>
+                            </Grid>
+                            <Grid item xs={3} md={12} sx={{display:"flex"}}>
+                              <LocationOnIcon/>
+                              <div> 
+                                 <h3>
+                                   Address : 
+                              
+                                 </h3>
+                                 <p>
+                                     this is a placeHolder for address
+                                 </p>
+                              </div>
+                            </Grid>
+                            <Grid item xs={3} md={12} sx={{display:"flex"}}>
+                              <LocationOnIcon/>
+                              <div> 
+                                 <h3>
+                                   Address : 
+                              
+                                 </h3>
+                                 <p>
+                                     this is a placeHolder for address
+                                 </p>
+                              </div>
+                            </Grid>
+                     </Grid>
+                   </Grid>
                 </Grid>
             </div>
       </div>
