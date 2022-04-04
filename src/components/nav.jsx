@@ -1,5 +1,6 @@
 import React , {useState} from 'react'
 import {NavLink} from "react-router-dom"
+import MiniCart from "./miniCart-1"
 // import Btn from './subComponents/button1'
 import {BtnOne} from './subComponents/btns'
 import IconButton from '@mui/material/IconButton';
@@ -87,7 +88,8 @@ const NavStyles = createGlobalStyle`
     }
     `
 export default function Nav() {
-  const [searchOpen, setSearchOpen] = useState(true)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [visibleMiniCart , setVisibleminiCart] = useState(false)
   return (
     <>
         <NavStyles/>
@@ -96,32 +98,29 @@ export default function Nav() {
                 <NavLogo src = "./img/Logo.png" />
                 { !searchOpen &&
                    <ul className ='topNavList'>
-                                  <NavLink to='/1'>
+                                 <NavLink to='/'>
+                                    Home page
+                                  </NavLink>
+                                  <NavLink to='/store?search=laptops'>
                                     LapTops
                                   </NavLink>
-                                  <NavLink to='/2'>
+                                  <NavLink to='/store?search=pcs'>
                                     Desktop PCs
                                   </NavLink>
-                                  <NavLink to='/3'>
+                                  <NavLink to='/store?search=network-devices'>
                                     Networking Devices
                                   </NavLink>
-                                  <NavLink to='/4'>
+                                  <NavLink to='/store?search=printers-scanners'>
                                     Printers&Scanners
                                   </NavLink>
-                                  <NavLink to='/5'>
+                                  <NavLink to='/store?pcParts'>
                                     PC Parts
                                   </NavLink>
-                                  <NavLink to='/6'>
+                                  <NavLink to='/store?search=others'>
                                     All Other Products 
                                   </NavLink>
-                                  <NavLink to='/'>
-                                    Repairs
-                                  </NavLink>
-                                  <NavLink to='/33'>
-                                    <BtnOne>
-                                      Our Deals
-                                    </BtnOne>
-                                  </NavLink>
+                           
+                             
                     </ul>
                 }
                 {
@@ -143,8 +142,8 @@ export default function Nav() {
                 { !searchOpen &&  <IconButton aria-label="search" color='primary' >
                      <SearchIcon color='black'sx={{color :"#333" , fontSize : "20px"}} onClick={()=>setSearchOpen(true)}/>
                   </IconButton>}
-                  <IconButton aria-label="search" color='primary' >
-
+                  <IconButton aria-label="search" color='primary' sx={{position : "relative"}}  onMouseEnter={()=>setVisibleminiCart(true) } onMouseLeave={()=>setVisibleminiCart(false)}>
+                  <MiniCart isOpen={visibleMiniCart}/>
                   <Badge badgeContent={4}  color="primary" sx={{color :"#333"}}>
                       <ShoppingCartIcon  sx={{color :"#333" , fontSize : "20px"}}/>
                   </Badge>
@@ -153,6 +152,7 @@ export default function Nav() {
                 </div>
             </div>
         </div>
+   
     </>
   )
 }

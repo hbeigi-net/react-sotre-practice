@@ -7,6 +7,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box !important;
     }
     body {
+        color : ${props=> props.mode == "dark" ? "white" : "black"} !important;
+        background-color : ${props=> props.mode =='dark' ? "#445421":"#fffeff"} !important ; 
     }
     ul{
       list-style :none ; 

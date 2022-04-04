@@ -57,11 +57,11 @@ export default function CatalogOne() {
       <div className="container1250">
          <img src="./img/tufGamingBanner.png" className='cpTopBanner' alt="tuf gaming" />
       </div>
-      <div className="cpBreadCrump">
+      {/* <div className="cpBreadCrump">
         <div className="container1250" style={{marginTop : "-40px"}}>
           <BreadCrumbOne/>
         </div>
-      </div>
+      </div> */}
     </header>
     <main>
       <div className="container1250">
@@ -141,9 +141,9 @@ export default function CatalogOne() {
       </div>
     </main>
 
-    <footer id="catalogPageFooter">
+    {/* <footer id="catalogPageFooter">
           <MainFooter/>       
-    </footer>
+    </footer> */}
     
     </>
   )

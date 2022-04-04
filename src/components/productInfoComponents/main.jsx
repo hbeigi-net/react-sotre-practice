@@ -41,8 +41,7 @@ export default function ProductInfo() {
   const [value, setValue] = React.useState(0);
   return (  
       <>
-      <Topbar/>
-      <Nav/>
+
        <InfoSubheader value ={value} setValue={setValue}/>
        <div className=' infContainer '>
           <Grid container spacing={2}>
@@ -67,7 +66,6 @@ export default function ProductInfo() {
 
        </div>
         <Rest/>
-        <MainFooter />
       </>
   )
 }

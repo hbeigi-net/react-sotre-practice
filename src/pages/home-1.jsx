@@ -62,8 +62,6 @@ export default function HomeOne() {
   return (
       <>
         <HomeOneStyles/>
-        <TopBar/>
-       <Nav/> 
         <Slider style={{marginTop:"100px"}}>
             <div>
                 <img src='./img/homeOneTopSlider/image 26.png' width="100%"/>
@@ -552,8 +550,6 @@ export default function HomeOne() {
                 
             </div>
         </section>
-
-            <Footer/>
 
     </> 
   )

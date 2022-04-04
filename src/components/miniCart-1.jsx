@@ -6,14 +6,19 @@ import MCPI from "./miniCartProductItem"
 const MiniCartStyles = createGlobalStyle`
     #MiniCart
     {
-        margin : 50px ; 
+        /* margin : 50px ;  */
         padding : 10px 0px  ; 
-        
-        position: relative;
+        position: absolute;
+        z-index : 100 ; 
+        top : 100% ; 
+        right : -30px ; 
         width: 310px;
-        height: 511px;
+        height: 530px;
         background: #FFFFFF;
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.14);
+        transition : all 300ms ease ; 
+        opacity : ${props=> props.isOpen ? "1" : "0"} ; 
+        visibility : ${props=> props.isOpen? "visible" : "hidden"}
     }
     #MiniCartContent
     {
@@ -68,10 +73,10 @@ const MiniCartStyles = createGlobalStyle`
     }
     
 `
-export default function MiniCart() {
+export default function MiniCart({isOpen}) {
   return (
     <>
-    <MiniCartStyles/>
+    <MiniCartStyles isOpen={isOpen}/>
     <div id="MiniCart">
         <div id="TopAnchor">
         <div style={{height : "20px",width : "100px" , overflow : "hidden" , position :"absolute" ,right : "0", top: "-20px"}} ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{height : "100%" , width : "100%"}}><path d="M215.86,36.02 C217.54,34.03 215.29,37.00 218.11,34.03 L264.95,152.47 L162.25,153.45 Z" style={{stroke : "ButtonShadow", fill : "#FFFFFF"}}></path></svg></div>
