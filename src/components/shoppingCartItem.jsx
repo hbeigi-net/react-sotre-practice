@@ -6,7 +6,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 const ShoppingCartItemStyles = createGlobalStyle`
     .shop-item-main{
-      max-height : 200px ; 
+      max-height : 100px ; 
       position : relative ; 
       overflow : hidden ; 
     }
@@ -22,7 +22,7 @@ const ShoppingCartItemStyles = createGlobalStyle`
     }
     .shop-item-image
     {
-      height : 200px  ; 
+      height : 150px  ; 
 
     }
 `
@@ -70,7 +70,7 @@ export default function ShoppingCartItem({itemCounter =1}) {
                     label=""
                     value={itemCount}
                     // onChange={}
-                    disabled
+                    // disabled
                     inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                     sx={{width : "50px"}}
                   
