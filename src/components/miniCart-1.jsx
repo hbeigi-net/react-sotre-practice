@@ -16,9 +16,9 @@ const MiniCartStyles = createGlobalStyle`
         height: 530px;
         background: #FFFFFF;
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.14);
-        transition : all 300ms ease ; 
-        opacity : ${props=> props.isOpen ? "1" : "0"} ; 
-        visibility : ${props=> props.isOpen? "visible" : "hidden"}
+        /* transition : all 300ms ease ;  */
+        /* opacity : ${props=> props.isOpen ? "1" : "0"} ;  */
+        /* visibility : ${props=> props.isOpen? "visible" : "hidden"} */
     }
     #MiniCartContent
     {

@@ -11,6 +11,7 @@ import TopBar from "./components/topBar"
 import Auth from "./pages/auth";
 import ShoppintCart from "./pages/shoppintCart";
 import {useThemeMe} from "./contexts/themeContext"
+import AutnReq from "./components/authRequired"
 function App() {
   const {themeMode} = useThemeMe();  
   return (
@@ -21,7 +22,7 @@ function App() {
             <Route path="store" element={<CatalogOne/>}></Route>
             <Route path="store/:productId" element={<ProductInfo/>}></Route>
             <Route path="auth" element={<Auth/>}></Route>
-            <Route path="shopping-cart" element={<ShoppintCart/>}></Route>
+            <Route path="shopping-cart" element={ <AutnReq> <ShoppintCart/> </AutnReq>}></Route>
             <Route path="contact-us" element={<ContactUs/>}></Route>
         </Routes>
         <TopBar/>

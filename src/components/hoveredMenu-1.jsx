@@ -6,10 +6,14 @@ import BrandsBar from "./brandsLogoBar";
 const HoverMenuOneStyles = createGlobalStyle`
     #hoverMenuOne
     {
+        cursor : default ;
         box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
         width : 90vw ; 
         background-color : #f1f1f1 ;    
         margin : 20px ; 
+        position: absolute ; 
+        left : -900% ; 
+        top : 30% ; 
     }
     .hmContainer
     {

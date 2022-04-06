@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     body {
         color : ${props=> props.mode == "dark" ? "white" : "black"} !important;
-        background-color : ${props=> props.mode =='dark' ? "#445421":"#fffeff"} !important ; 
+        background-color : ${props=> props.mode =='dark' ? "#999999":"#fffeff"} !important ; 
     }
     ul{
       list-style :none ; 

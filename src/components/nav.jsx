@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState , useEffect} from 'react'
 import {NavLink} from "react-router-dom"
 import MiniCart from "./miniCart-1"
 // import Btn from './subComponents/button1'
@@ -11,7 +11,7 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Avatar from '@mui/material/Avatar';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-
+import MegaMenu from "./hoveredMenu-1"
 
 
 const NavStyles = createGlobalStyle`
@@ -90,6 +90,12 @@ const NavStyles = createGlobalStyle`
 export default function Nav() {
   const [searchOpen, setSearchOpen] = useState(false)
   const [visibleMiniCart , setVisibleminiCart] = useState(false)
+  const [visibleMegaMenu , setVisibleMegaMenu] = useState(false)
+
+  useEffect(()=>
+  {
+    // setVisibleminiCart(false)
+  })
   return (
     <>
         <NavStyles/>
@@ -101,8 +107,11 @@ export default function Nav() {
                                  <NavLink to='/'>
                                     Home page
                                   </NavLink>
-                                  <NavLink to='/store?search=laptops'>
+                                  <NavLink style={{position:"relative"}} to='/store?search=laptops' onMouseEnter={()=>setVisibleMegaMenu(true)} onMouseLeave={()=>setVisibleMegaMenu(false)}>
                                     LapTops
+                                    {
+                                      visibleMegaMenu&&<MegaMenu/>
+                                    }
                                   </NavLink>
                                   <NavLink to='/store?search=pcs'>
                                     Desktop PCs
@@ -143,7 +152,7 @@ export default function Nav() {
                      <SearchIcon color='black'sx={{color :"#333" , fontSize : "20px"}} onClick={()=>setSearchOpen(true)}/>
                   </IconButton>}
                   <IconButton aria-label="search" color='primary' sx={{position : "relative"}}  onMouseEnter={()=>setVisibleminiCart(true) } onMouseLeave={()=>setVisibleminiCart(false)}>
-                  <MiniCart isOpen={visibleMiniCart}/>
+                { visibleMiniCart && <MiniCart isOpen={true}/>}
                   <Badge badgeContent={4}  color="primary" sx={{color :"#333"}}>
                       <ShoppingCartIcon  sx={{color :"#333" , fontSize : "20px"}}/>
                   </Badge>
