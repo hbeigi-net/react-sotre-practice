@@ -8,7 +8,8 @@ export default function AuthRequired({children}) {
 
     if(!userObject)
     {
-        return <Navigate to={'/auth'} />
+        
+        return <Navigate state={{path : window.location.pathname}} to={'/auth'} />
     }
   return (
     <>

@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'styled-components'
 import Grid from '@mui/material/Grid'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-
-
+import {useAuthMe} from "../contexts/authContext"
+import {useNavigate , Navigate , useLocation} from "react-router-dom"
 
 const AuthPageStyles = createGlobalStyle`
     #auth-page-main
@@ -32,6 +32,18 @@ const AuthPageStyles = createGlobalStyle`
     }
 `
 export default function Auth() {
+  const {setuserObject , userObject} = useAuthMe();
+  const navigator = useNavigate();
+  const location = useLocation(); 
+  const loginHandler =()=>
+  {
+    const sourcUrl = location.state.path? location.state.path : "/";
+    console.log(sourcUrl); 
+    const userEmail = document.querySelector("#Auth-form-email").value ;
+    const userPass = document.querySelector("#Auth-form-pass").value ; 
+    setuserObject({userEmail , userPass});
+    navigator(sourcUrl , {replace : true})
+  }
   return (
   <>
         <AuthPageStyles/>
@@ -65,9 +77,10 @@ export default function Auth() {
                                     //   value={"name"}
                                     //   onChange={}
                                       sx={{width: "350px"}}
+                                      type ="password"
                    
                                     />
-                                    <Button variant="contained" color="primary" sx={{margin : "10px 0" , maxWidth : "200px"}}> 
+                                    <Button variant="contained" color="primary" sx={{margin : "10px 0" , maxWidth : "200px"}} onClick={(e)=>loginHandler()}> 
                                       login
                                     </Button>
                                  
