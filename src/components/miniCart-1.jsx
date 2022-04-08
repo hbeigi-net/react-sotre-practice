@@ -2,7 +2,7 @@ import React from 'react'
 import {createGlobalStyle} from "styled-components"
 import Button from '@mui/material/Button'
 import MCPI from "./miniCartProductItem"
-
+import {useNavigate} from 'react-router-dom'
 const MiniCartStyles = createGlobalStyle`
     #MiniCart
     {
@@ -74,6 +74,7 @@ const MiniCartStyles = createGlobalStyle`
     
 `
 export default function MiniCart({isOpen}) {
+    const navigate = useNavigate(); 
   return (
     <>
     <MiniCartStyles isOpen={isOpen}/>
@@ -89,7 +90,7 @@ export default function MiniCart({isOpen}) {
                 <small>
                     {2} item in cart 
                 </small>
-                <Button variant="contained" color="primary"  sx={{fontSize : "12px" , padding:"2px 30px" , margin : "3px"}}>
+                <Button variant="contained" onClick={(e)=>{navigate("shopping-cart")}} color="primary"  sx={{fontSize : "12px" , padding:"2px 30px" , margin : "3px"}}>
                 View or Edit Your Cart
                 </Button>
          
