@@ -12,7 +12,7 @@ export const productSlice = createSlice({
     name : "products_slice" , 
     initialState ,
     reducers : {
-        set_products : async (state , action)=>
+        set_products :  (state , action)=>
         {
            state.productList = action.payload ; 
         }

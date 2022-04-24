@@ -84,7 +84,7 @@ const PcOneStyles = createGlobalStyle`
         left : 0 ; 
     }
 `
-export default function PcOne({activeActions=true , noShadow=false}) {
+export default function PcOne({activeActions=true , noShadow=false , product}) {
     const [isLiked, setIsLiked] = useState(true)
     const [isAvailable, setIsAvailable] = useState(true)
     const [hasDiscount, setHasDiscount] = useState(true)
@@ -127,7 +127,7 @@ export default function PcOne({activeActions=true , noShadow=false}) {
         <div className="pcOneContent">
 
                 
-                <img src='./—Pngtree—wireless headphones blue_4347448.png'/>
+                <img src={product.image}/>
                 
                 <div className="pcOneReviews">
                       <Rating name="read-only" value={4.4}  readOnly  size="small" precision={0.1} />
@@ -135,12 +135,12 @@ export default function PcOne({activeActions=true , noShadow=false}) {
                 </div>
 
                 <h3 className="pcOneTitle">
-                    EX DISPLAY : MSI Pro 16 Flex-036AU 15.6 MULTITOUCH All-In-On...
+                        {product.title.slice(25)}...
                 </h3>
              
                 <div className="pcOnePriceArea">
-                    {hasDiscount && <p className="noDiscountPrice">$499.00</p>}
-                    <p className='pcOnePrice'>$480.00</p>
+                    {hasDiscount && <p className="noDiscountPrice">${product.price}</p>}
+                    <p className='pcOnePrice'>${product.price}</p>
                 </div>
                 {  hasActions&&
                 <BtnOne style={{ display : "flex" , alignItems : "center" , justifyContent : 'center' , padding :'3px 10px ' , margin : "4px"}}>

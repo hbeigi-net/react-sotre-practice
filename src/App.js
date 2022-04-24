@@ -21,7 +21,7 @@ function App() {
   {
     setTimeout(()=>
     {
-      dispatch(getProducts()); 
+      dispatch(getProducts) 
     } , 3000); 
   },[])
   return (

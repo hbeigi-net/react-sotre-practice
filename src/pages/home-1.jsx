@@ -1,8 +1,6 @@
 import React , {useState} from 'react'
 import {createGlobalStyle} from "styled-components"
 import Slider from "../components/sliderOne"
-import Nav from "../components/nav"
-import TopBar from "../components/topBar"
 import ProductCart from "../components/productCard-1"
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -14,7 +12,7 @@ import BrandsLogoBar from "../components/brandsLogoBar"
 import BlogPostCard from "../components/blogPostCard"
 import TestimonialCarouselItem from "../components/TestimonialCarouselItem"; 
 import SliderTwo from "../components/sliderTwo"
-import Footer from "../components/mainFooter"
+import {useSelector} from "react-redux"
 const HomeOneStyles = createGlobalStyle`
     /* hp stands for home page  */
     .container1250
@@ -41,6 +39,9 @@ const HomeOneStyles = createGlobalStyle`
 export default function HomeOne() {
     const [valueOne, setValueOne] = useState('1');
     const [valueTwo, setValueTwo] = useState('1');
+    const products = useSelector(state=> state.productReducer.productList)
+    console.log(products);
+
     const handleChangeOne = (event, newValue) => {
         setValueOne(newValue);
       };
@@ -96,30 +97,15 @@ export default function HomeOne() {
 
             <div className="container1250">
                 <Slider set={{slidesToShow : 5 , slidesToScroll :3}}>
-                <div>
-                    <ProductCart activeActions ={false} noShadow ={true}/>
-                </div>
-                <div>
-                    <ProductCart activeActions ={false} noShadow ={true}/>
-                </div>
-                <div>
-                    <ProductCart activeActions ={false} noShadow ={true}/>
-                </div>
-                <div>
-                    <ProductCart activeActions ={false} noShadow ={true}/>
-                </div>
-                <div>
-                    <ProductCart activeActions ={false} noShadow ={true}/>
-                </div>
-                <div>
-                    <ProductCart activeActions ={false} noShadow ={true}/>
-                </div>
-                <div>
-                    <ProductCart activeActions ={false} noShadow ={true}/>
-                </div>
-                <div>
-                    <ProductCart activeActions ={false} noShadow ={true}/>
-                </div>
+                    {products &&  products.map(item=>
+                            {
+                                return <>
+                                <div>
+                                <ProductCart product={item}  activeActions ={false} noShadow ={true}/>
+                                </div>
+                                </>
+                            })
+                    }
                 </Slider>
             </div>
         </section>
