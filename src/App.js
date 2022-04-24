@@ -12,8 +12,8 @@ import Auth from "./pages/auth";
 import ShoppintCart from "./pages/shoppintCart";
 import {useThemeMe} from "./contexts/themeContext"
 import AutnReq from "./components/authRequired"
-import {useDispatch} from "react-redux"
-import {load_producs} from "./store/slices/productSlice"
+import {useDispatch} from "react-redux"; 
+import {} from ""
 function App() {
   const {themeMode} = useThemeMe();  
   const dispatch = useDispatch(); 
@@ -21,7 +21,7 @@ function App() {
   {
     setTimeout(()=>
     {
-      dispatch(load_producs("sent from app as payload for load product")); 
+      dispatch(); 
     } , 3000); 
   },[])
   return (
