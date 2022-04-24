@@ -13,7 +13,7 @@ import ShoppintCart from "./pages/shoppintCart";
 import {useThemeMe} from "./contexts/themeContext"
 import AutnReq from "./components/authRequired"
 import {useDispatch} from "react-redux"; 
-import {} from ""
+import {getProducts} from "./store/helper"
 function App() {
   const {themeMode} = useThemeMe();  
   const dispatch = useDispatch(); 
@@ -21,7 +21,7 @@ function App() {
   {
     setTimeout(()=>
     {
-      dispatch(); 
+      dispatch(getProducts()); 
     } , 3000); 
   },[])
   return (

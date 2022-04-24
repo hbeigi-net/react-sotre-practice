@@ -12,11 +12,11 @@ export const productSlice = createSlice({
     name : "products_slice" , 
     initialState ,
     reducers : {
-        set_producs : async (state , action)=>
+        set_products : async (state , action)=>
         {
            state.productList = action.payload ; 
         }
     }
 })
-export const {set_producs} = productSlice.actions
+export const {set_products} = productSlice.actions
 export default productSlice.reducer ; 
