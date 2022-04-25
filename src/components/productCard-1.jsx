@@ -33,6 +33,7 @@ const PcOneStyles = createGlobalStyle`
     .pcOne .pcOneContent img 
     {
         width : 100% ;
+        height : 250px ; 
         display : block ; 
         margin-left : auto ; 
         margin-right : auto ; 
@@ -89,68 +90,67 @@ export default function PcOne({activeActions=true , noShadow=false , product}) {
     const [isAvailable, setIsAvailable] = useState(true)
     const [hasDiscount, setHasDiscount] = useState(true)
     const [hasActions , setHasActions] = useState(false); 
+    const [pInfo, setPInfo] = useState('')
     useEffect(() => {
         setHasActions(activeActions)
+        setPInfo(product)
     }, [])
     
-    
+    if(!pInfo)return<></> ; 
   return (
     <>
-    
-    <PcOneStyles />
-    
- 
-    <PcOneCON className='pcOne' style={noShadow?{boxShadow : "none"}:{}} >
-        <div className="BadgeArea">
-            {
-                isAvailable ? <AvailableBadge/> : <NotAvailableBadge/>
-            }
-        </div>
-        {
-                    hasActions &&
-                    <div className="pcOneActionArea">
-                        <IconButton >
-                        {
-                            isLiked ? <FavoriteIcon sx={{color : "red" , cursor : "pointer"}} onClick={()=>{
-                                setIsLiked(isLiked=>!isLiked);
-                            }}/> : <FavoriteBorderIcon onClick={()=>{
-                                setIsLiked(isLiked=>!isLiked);
-                            }} />
-                        }
-                        </IconButton>
-                        <IconButton >
-                            <BarChartRoundedIcon sx={{ cursor : "pointer"}}  />
-                        </IconButton>
-                    
-                    </div>
-        }
-        <div className="pcOneContent">
-
-                
-                <img src={product.image}/>
-                
-                <div className="pcOneReviews">
-                      <Rating name="read-only" value={4.4}  readOnly  size="small" precision={0.1} />
-                      Reviews (<span>34</span>)
-                </div>
-
-                <h3 className="pcOneTitle">
-                        {product.title.slice(25)}...
-                </h3>
-             
-                <div className="pcOnePriceArea">
-                    {hasDiscount && <p className="noDiscountPrice">${product.price}</p>}
-                    <p className='pcOnePrice'>${product.price}</p>
-                </div>
-                {  hasActions&&
-                <BtnOne style={{ display : "flex" , alignItems : "center" , justifyContent : 'center' , padding :'3px 10px ' , margin : "4px"}}>
-                    <AddShoppingCartIcon sx={{fontSize : "16px" , mr : "10px"}}/>
-                     Add to Cart  
-                </BtnOne>
-
+        <PcOneStyles />
+        <PcOneCON className='pcOne' style={noShadow?{boxShadow : "none"}:{}} >
+            <div className="BadgeArea">
+                {
+                    isAvailable ? <AvailableBadge/> : <NotAvailableBadge/>
                 }
-        </div>
-    </PcOneCON>
+            </div>
+            {
+                        hasActions &&
+                        <div className="pcOneActionArea">
+                            <IconButton >
+                            {
+                                isLiked ? <FavoriteIcon sx={{color : "red" , cursor : "pointer"}} onClick={()=>{
+                                    setIsLiked(isLiked=>!isLiked);
+                                }}/> : <FavoriteBorderIcon onClick={()=>{
+                                    setIsLiked(isLiked=>!isLiked);
+                                }} />
+                            }
+                            </IconButton>
+                            <IconButton >
+                                <BarChartRoundedIcon sx={{ cursor : "pointer"}}  />
+                            </IconButton>
+                        
+                        </div>
+            }
+            <div className="pcOneContent">
+
+                    
+                    <img src={pInfo.image}/>
+                    
+                    <div className="pcOneReviews">
+                        <Rating name="read-only" value={pInfo.rating.rate}  readOnly  size="small" precision={0.1} />
+                        Reviews (<span>{pInfo.rating.count}</span>)
+                    </div>
+
+                    <h3 className="pcOneTitle">
+                            {pInfo.title.slice(0,25)}...
+                    </h3>
+                
+                    <div className="pcOnePriceArea">
+                        {hasDiscount && <p className="noDiscountPrice">${pInfo.price}</p>}
+                        <p className='pcOnePrice'>${pInfo.price}</p>
+                    </div>
+                    {  hasActions&&
+                    <BtnOne style={{ display : "flex" , alignItems : "center" , justifyContent : 'center' , padding :'3px 10px ' , margin : "4px"}}>
+                        <AddShoppingCartIcon sx={{fontSize : "16px" , mr : "10px"}}/>
+                        Add to Cart  
+                    </BtnOne>
+
+                    }
+            </div>
+        </PcOneCON>
     </>
   )
 }

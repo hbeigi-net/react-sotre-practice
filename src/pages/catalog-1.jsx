@@ -2,18 +2,17 @@ import React ,{useState} from 'react'
 import {createGlobalStyle} from "styled-components"
 import TopBar from "../components/topBar"
 import Nav from "../components/nav"
-import BreadCrumbOne from '../components/breadCrumb-1'
 import Grid from '@mui/material/Grid'
-import ProductCard from "../components/productCard-1"
 import ViewComfyIcon from '@mui/icons-material/ViewComfy';
 import ControlledInput from "../components/controlledSelect"
 import IconButton from '@mui/material/IconButton'
 import TableRowsSharpIcon from '@mui/icons-material/TableRowsSharp';
-import MainFooter from "../components/mainFooter"
 import Filters from '../components/storeFilters'
 import Chip from '@mui/material/Chip';
 import Paginater from '../components/pagination'
+import ProductCard from "../components/productCard-1"
 import LVPC from "../components/listViewProductCard"
+import {useSelector} from "react-redux"
 const CatalogOneStyles = createGlobalStyle`
 
   .cpTopBanner{
@@ -42,10 +41,12 @@ const CatalogOneStyles = createGlobalStyle`
 `
 export default function CatalogOne() {
   const [listView , setListView] = useState(false); 
+  const products = useSelector(state=> state.productReducer.productList)
   const handleDelete =()=>
   {
     console.log("hello world")
   }
+  if(!products) return <></>; 
   return (
     <>  
     <CatalogOneStyles/>
@@ -105,15 +106,15 @@ export default function CatalogOne() {
                       </div>
                     </div>
                 </Grid>
+
                 {!listView &&
-                  [1,2,3,4,5,6,7,8,9,10,11,12,1,2,2,3,4,5,6,7,8,9,9,9,9,9,9,9].map(item=>
+                  products.map(item=>
                     {
                       return (
-                        <Grid item xs ={6} sm = {4} lg ={3} key={item}  >
-                           <ProductCard/>
+                        <Grid item xs ={6} sm = {4} lg ={3} key={item.id}  >
+                         <ProductCard product={item}/>
                         </Grid>
                       )
-                      
                     })
                 }
                 {
