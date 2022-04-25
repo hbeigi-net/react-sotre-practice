@@ -9,6 +9,9 @@ import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
 import IconButton from '@mui/material/IconButton'
 import AvailableBadge from "./placeholder-1"
 import NotAvailableBadge from "./placeholder-2"
+import {useNavigate} from "react-router-dom"
+import {useSelector , useDispatch} from "react-redux"
+import {like_product , unlike_product} from "../store/slices/productSlice"
 const PcOneCON = styled.div`
         max-width : 234px ; 
         display: flex;
@@ -86,21 +89,31 @@ const PcOneStyles = createGlobalStyle`
     }
 `
 export default function PcOne({activeActions=true , noShadow=false , product}) {
-    const [isLiked, setIsLiked] = useState(true)
+    const [isLiked, setIsLiked] = useState(false)
     const [isAvailable, setIsAvailable] = useState(true)
     const [hasDiscount, setHasDiscount] = useState(true)
     const [hasActions , setHasActions] = useState(false); 
+    const ifLiked = useSelector(state=> state.productReducer.likedProducts);
     const [pInfo, setPInfo] = useState('')
+    const dispatch = useDispatch(); 
+    const navigate = useNavigate(); 
     useEffect(() => {
         setHasActions(activeActions)
         setPInfo(product)
+  
+        ifLiked.map(item=> {
+            if(pInfo.id == item.id)
+            {
+                setIsLiked(true)
+            }
+        })
     }, [])
     
     if(!pInfo)return<></> ; 
   return (
     <>
         <PcOneStyles />
-        <PcOneCON className='pcOne' style={noShadow?{boxShadow : "none"}:{}} >
+        <PcOneCON className='pcOne' style={noShadow?{boxShadow : "none"}:{}}  >
             <div className="BadgeArea">
                 {
                     isAvailable ? <AvailableBadge/> : <NotAvailableBadge/>
@@ -113,8 +126,10 @@ export default function PcOne({activeActions=true , noShadow=false , product}) {
                             {
                                 isLiked ? <FavoriteIcon sx={{color : "red" , cursor : "pointer"}} onClick={()=>{
                                     setIsLiked(isLiked=>!isLiked);
+                                    dispatch(unlike_product({id : pInfo.id}))
                                 }}/> : <FavoriteBorderIcon onClick={()=>{
                                     setIsLiked(isLiked=>!isLiked);
+                                    dispatch(like_product({id : pInfo.id}))
                                 }} />
                             }
                             </IconButton>
@@ -124,7 +139,9 @@ export default function PcOne({activeActions=true , noShadow=false , product}) {
                         
                         </div>
             }
-            <div className="pcOneContent">
+            <div className="pcOneContent" onClick={(e)=>{ 
+                e.stopPropagation(); 
+                navigate(`/store/${product.id}`)}}>
 
                     
                     <img src={pInfo.image}/>

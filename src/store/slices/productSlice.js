@@ -15,8 +15,21 @@ export const productSlice = createSlice({
         set_products :  (state , action)=>
         {
            state.productList = action.payload ; 
-        }
+        },
+ 
+    like_product : (state , action)=>
+    {
+        console.log(state);
+       const liked =  state.productList.find(item => item.id==action.payload.id);
+       console.log(liked)
+       state.likedProducts.push(liked);
+    },
+    unlike_product : (state , action)=>
+    {
+        const index = state.likedProducts.findIndex(item=> item.id == action.payload.id); 
+        state.likedProducts.splice(index , 1); 
     }
+},
 })
-export const {set_products} = productSlice.actions
+export const {set_products , like_product , unlike_product} = productSlice.actions
 export default productSlice.reducer ; 
