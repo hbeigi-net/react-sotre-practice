@@ -1,3 +1,23 @@
+this project was a simple learning one that for a while i was working on it  and i tried to review stuff i had learned before it 
+obviously it has many bugs and errors and also has much undone works  
+in this project i used 
+#React
+#React hooks 
+#redux 
+#react-redux
+#redux-toolkit
+#material Ui
+#styled-components 
+#html&css 
+and some other liberaries that you can see on package.json 
+
+ui template i used in this practice  is available on figma.com 
+https://www.figma.com/file/IkBBlYlk1sHeiikeByjCIP/Tech-Online-Store-Design-Community
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
