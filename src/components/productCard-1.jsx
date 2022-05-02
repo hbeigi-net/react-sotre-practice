@@ -126,10 +126,10 @@ export default function PcOne({activeActions=true , noShadow=false , product}) {
                             {
                                 isLiked ? <FavoriteIcon sx={{color : "red" , cursor : "pointer"}} onClick={()=>{
                                     setIsLiked(isLiked=>!isLiked);
-                                    dispatch(unlike_product({id : pInfo.id}))
+                                    dispatch(unlike_product({product : pInfo}))
                                 }}/> : <FavoriteBorderIcon onClick={()=>{
                                     setIsLiked(isLiked=>!isLiked);
-                                    dispatch(like_product({id : pInfo.id}))
+                                    dispatch(like_product({product : pInfo}))
                                 }} />
                             }
                             </IconButton>
